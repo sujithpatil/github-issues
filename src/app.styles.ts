@@ -71,4 +71,6 @@ margin-top: 20px;
 `;
 
 export const issue_body = styled.div`
+max-width: 100%;
+word-break: break-all;
 `;

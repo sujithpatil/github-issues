@@ -46,7 +46,7 @@ const Issue = (props: { issue: any; }) => {
                             <s.author><s.author_name>{ getFormattedDate(comment.created_at) }</s.author_name></s.author>
                              <s.author>By <s.author_name>{comment.user.login}</s.author_name></s.author>
                         </div>
-                        <div>{comment.body}</div>
+                        <div className='comment'>{comment.body}</div>
                     </s.comment_body>
 
                 )}
