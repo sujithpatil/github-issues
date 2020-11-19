@@ -41,12 +41,12 @@ const Issue = (props: { issue: any; }) => {
                 {issue.comments.map((comment: { id: string | number | null | undefined; created_at: React.ReactNode; user: { login: React.ReactNode; }; body: React.ReactNode; }) =>
 
                     <s.comment_body key={comment.id}>
-                        <div className='comment'>
+                        <s.comment className='comment'>
                             
                             <s.author><s.author_name>{ getFormattedDate(comment.created_at) }</s.author_name></s.author>
                              <s.author>By <s.author_name>{comment.user.login}</s.author_name></s.author>
-                        </div>
-                        <div className='comment'>{comment.body}</div>
+                        </s.comment>
+                        <s.comment className='comment'>{comment.body}</s.comment>
                     </s.comment_body>
 
                 )}

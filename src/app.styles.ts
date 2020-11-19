@@ -70,6 +70,11 @@ background: #f2f2f2;
 margin-top: 20px;
 `;
 
+export const comment = styled.div`
+  max-width: 100%;
+  word-break: break-all;
+`;
+
 export const issue_body = styled.div`
 max-width: 100%;
 word-break: break-all;
