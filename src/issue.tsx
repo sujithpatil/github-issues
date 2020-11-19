@@ -9,6 +9,19 @@ const Issue = (props: { issue: any; }) => {
         setShowComments(!showComments);
     }
 
+    const dateToYMD = (date: Date) =>  {
+        var strArray=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var d = date.getDate();
+        var m = strArray[date.getMonth()];
+        var y = date.getFullYear();
+        return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
+    }
+
+    const getFormattedDate = ( date: any ) => {
+        const d = new Date( date );
+        return dateToYMD( d );
+    }
+
     const { issue } = props;
 
     return <s.issue_container key={issue.id}>
@@ -28,7 +41,11 @@ const Issue = (props: { issue: any; }) => {
                 {issue.comments.map((comment: { id: string | number | null | undefined; created_at: React.ReactNode; user: { login: React.ReactNode; }; body: React.ReactNode; }) =>
 
                     <s.comment_body key={comment.id}>
-                        <div className='comment'>{comment.created_at} {comment.user.login}:</div>
+                        <div className='comment'>
+                            
+                            <s.author><s.author_name>{ getFormattedDate(comment.created_at) }</s.author_name></s.author>
+                             <s.author>By <s.author_name>{comment.user.login}</s.author_name></s.author>
+                        </div>
                         <div>{comment.body}</div>
                     </s.comment_body>
 

@@ -21,8 +21,8 @@ const Test = (props: { user: string; repo: string; }) => {
     }
 
     return <>
-        {data?.map((issue: any) => (
-            <Issue issue={issue} />
+        {data?.map((issue: any, index: any) => (
+            <Issue key={ index } issue={issue} />
         ))}</>
 };
 
